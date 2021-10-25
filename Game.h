@@ -16,6 +16,7 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Network.hpp>
 #include <SFML/Window/VideoMode.hpp>
+#include "Pig.h"
 
 class Game {
 private:
@@ -27,17 +28,22 @@ private:
     const float piggySpawnTimerMax = 20.f;
     const int maxPiggys = 5;
 
+    // Pig
+    std::vector<std::shared_ptr<Pig>> pigs;
+
     // Window
     std::shared_ptr<sf::RenderWindow> window = nullptr;
-    sf::Event event;
+    sf::Event event{};
 
     // Mouse pos
     sf::Vector2<int> mousePositionWindow;
     sf::Vector2<float> mousePositionView;
 
-    // Font and Text
+    // Font, Text, Sound
     sf::Font font;
     sf::Text text;
+    sf::SoundBuffer soundBuffer;
+    sf::Sound sound;
 
     // Gameplay vars
     int points;
@@ -45,6 +51,12 @@ private:
     float piggySpawnTimer;
     bool mouseHeld;
     bool endGame;
+
+    // Private functions
+    void initWindow();
+    void initFonts();
+    void initText();
+    void initSound();
 
 
 public:
@@ -58,10 +70,13 @@ public:
     bool running() const;
     bool getEndGame() const;
 
+    void spawnPig();
+
     // Update
     void pollEvents();
     void updateMousePosition();
     void updateText();
+    void updatePigs();
     void update();
 
     // Render
