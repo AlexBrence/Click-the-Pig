@@ -18,5 +18,5 @@ if(SFML_FOUND)
     message(STATUS "SFML_VERSION: ${SFML_VERSION}")
 endif()
 
-add_executable(Click_the_Pig main.cpp Game.cpp Game.h)
-target_link_libraries (Click_the_Pig sfml-graphics sfml-window sfml-system)
+add_executable(Click_the_Pig main.cpp Game.cpp Game.h Pig.cpp Pig.h)
+target_link_libraries (Click_the_Pig sfml-graphics sfml-window sfml-system sfml-audio)
