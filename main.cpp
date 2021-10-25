@@ -3,6 +3,9 @@
 
 int main() {
 
+    // Init srand
+    srand(static_cast<unsigned>(time(nullptr)));
+
     // Init game
     Game game;
 
