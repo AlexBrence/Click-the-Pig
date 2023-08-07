@@ -1,11 +1,9 @@
 #include <iostream>
+
 #include "Game.h"
 
-int main() {
-
-  // Init srand
-  srand(static_cast<unsigned>(time(nullptr)));
-
+int main() 
+{
   // Init game
   Game game;
 
